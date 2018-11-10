@@ -48,7 +48,7 @@ public class function_processor {
         functionControl.viewCall(viewStr);
         String firstStr=String.valueOf(leftChance)+":"+Blank+":"+String.valueOf(userScore);
         String firstPacket=wrapPacket(firstStr);
-        String firstFeedback=firstPacket+"@"+String.valueOf(leftChance)+"#"+WordtoGuess+"-"+Blank+"%";
+        String firstFeedback=firstPacket+"@"+String.valueOf(leftChance)+"#"+WordtoGuess+"("+Blank+"%";
         //System.out.println(firstFeedback);
         return firstFeedback;
     }

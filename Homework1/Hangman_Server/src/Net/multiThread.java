@@ -60,8 +60,8 @@ public multiThread (Socket socket){
                     String firstFeedback = functionControl.firstCall(ipaddress, userScore);
                     
                     leftChance= Integer.parseInt(functionControl.splitCall(firstFeedback, "@", "#"));
-                    WordtoGuess=functionControl.splitCall(firstFeedback, "#", "-");
-                    Blank=functionControl.splitCall(firstFeedback, "-", "%");
+                    WordtoGuess=functionControl.splitCall(firstFeedback, "#", "(");
+                    Blank=functionControl.splitCall(firstFeedback, "(", "%");
                     //System.out.println(Blank);
                     String[] firstPacket = firstFeedback.split("@");
                     bufout.write(firstPacket[0]);
