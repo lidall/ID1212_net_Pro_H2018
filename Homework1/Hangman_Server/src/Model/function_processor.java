@@ -97,7 +97,7 @@ public static String functionChoice(Socket socket,String Packet, int userScore, 
                 }
             } 
             //System.out.println(Blank);
-          sendFeedback=sendstr+"@"+String.valueOf(leftChance)+"#"+WordtoGuess+"-"+Blank+"%"+String.valueOf(userScore)
+          sendFeedback=sendstr+"@"+String.valueOf(leftChance)+"#"+WordtoGuess+"("+Blank+"%"+String.valueOf(userScore)
                   +"&"+String.valueOf(scoreFlag)+"^";
             
         //}            

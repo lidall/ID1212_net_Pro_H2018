@@ -74,8 +74,8 @@ public multiThread (Socket socket){
                     String compareFeedback = functionControl.mainCall(socket,Packet, userScore, ipaddress,leftChance,WordtoGuess,Blank);
                     String[] sendStr=compareFeedback.split("@");
                     leftChance= Integer.parseInt(functionControl.splitCall(compareFeedback, "@", "#"));
-                    WordtoGuess=functionControl.splitCall(compareFeedback, "#", "-");
-                    Blank=functionControl.splitCall(compareFeedback, "-", "%");
+                    WordtoGuess=functionControl.splitCall(compareFeedback, "#", "(");
+                    Blank=functionControl.splitCall(compareFeedback, "(", "%");
                     //System.out.println(sendStr[0]);
                     userScore=Integer.parseInt(functionControl.splitCall(compareFeedback, "%", "&"));
                     scoreFlag= Integer.parseInt(functionControl.splitCall(compareFeedback, "&", "^"));
