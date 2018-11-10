@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hangman_client;
+package controller;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -21,8 +21,8 @@ public class clientConnection {
             @SuppressWarnings("resource")
                     String serverIP=view.viewCLI.tapIn();
                     Socket socket=new Socket(serverIP,9999);
-                    new controller.threadIN(socket).start();
-                    new controller.threadOut(socket).start();
+                    new Net.threadIN(socket).start();
+                    new Net.threadOut(socket).start();
                     
         } catch (IOException ex) {
             Logger.getLogger(clientConnection.class.getName()).log(Level.SEVERE, null, ex);

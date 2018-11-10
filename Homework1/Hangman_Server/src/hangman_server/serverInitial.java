@@ -5,6 +5,7 @@
  */
 package hangman_server;
 
+import Controller.socketConnection;
 import Model.file_RD;
 import java.io.IOException;
 import java.util.logging.Level;

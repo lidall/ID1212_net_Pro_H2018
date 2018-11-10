@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Net;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -30,8 +30,7 @@ public class threadOut extends Thread{
 			if((tapIn).equals("NO")||(tapIn).equals("Quit")){
 			break;
 			}
-                        //System.out.println(model.formStr.wrapPacket(tapIn));
-                        socketout.write(model.formStr.wrapPacket(tapIn));
+                        socketout.write(controller.functionControl.wrapPckt(tapIn));
 			socketout.newLine();
 			socketout.flush();
                      }

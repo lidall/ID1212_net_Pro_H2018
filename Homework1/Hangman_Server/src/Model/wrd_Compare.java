@@ -22,14 +22,11 @@ public class wrd_Compare {
             char [] guessinput=guessInput.toCharArray();
             char [] wordtoguess=wordtoGuess.toCharArray();
             char [] guess=Guess.toCharArray();
-            //System.out.println(Guess);
             if (guessLenth==1){
                 for(int i=0;i<wordLenth;i++){
                     if(wordtoguess[i]==guess[0]){
                         existFlag=1;
-                        guessinput[i]=guess[0]; //when the guess is one character, compare it each bytes.
-                        //System.out.println("one cha, right");
-                        //System.out.println(guessinput);
+                        guessinput[i]=guess[0]; 
                     }                    
                 }               
             }
@@ -48,6 +45,7 @@ public class wrd_Compare {
                 outputGuess=guessInput;
                 lifetime=leftChance-1;                   
                        }
+            //System.out.println(outputGuess);
             
         
     }catch (Exception e){        

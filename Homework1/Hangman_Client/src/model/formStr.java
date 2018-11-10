@@ -5,21 +5,39 @@
  */
 package model;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
+
 /**
  *
  * @author Lida
  */
 public class formStr {
     public static int packetFlag=0;
-    public static String checkPacket(String item){
-        String[] packetElement;
-        String actualData = null;
-        packetElement=item.split("~");
-        if(packetElement[0].equals(String.valueOf(packetElement[1].length()))){
-            actualData=packetElement[1];
-            packetFlag=1;
-        }               
-        return actualData; 
+    public static String checkPacket(String item,Socket socket) throws IOException{
+        BufferedReader bufin =
+                new BufferedReader(new InputStreamReader(socket.getInputStream()));
+    String receivedMessage=null;
+    
+    String[] recPacket=item.split("~");
+    if(recPacket[0].equals(String.valueOf(recPacket[1].length()))){
+        receivedMessage=recPacket[1];
+    }
+    else{
+        while(true){
+        String inputPacket = bufin.readLine();
+        recPacket[1]=recPacket[1]+inputPacket;
+        if(recPacket[0].equals(String.valueOf(recPacket[1].length()))){
+        receivedMessage=recPacket[1];
+        break;
+            }
+        }
+    }
+    
+    
+    return receivedMessage; 
     }
     public static String formStr(String item){
         String[] strElement;

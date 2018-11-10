@@ -5,7 +5,7 @@
  */
 package hangman_client;
 
-import static hangman_client.clientConnection.clientConnection;
+import static controller.clientConnection.clientConnection;
 
 /**
  *
