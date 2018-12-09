@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Welcome to the Currency Exchange</title>
+    </h:head>
+    <h:body style="background-color: #D0D0D0 ">
+        <h1  style="text-align:center">Welcome to the Currency Exchange</h1>
+        <img style="display:block; margin:auto;" src="currency-converter.png" 
+             alt="converter" width="600" height="200"/>
+        <h3  style="text-align:center"> Total Transaction Currencies (in US Dollar):</h3>
+        <p  style="text-align:center">
+            <h:outputLabel for="convertCurr" rendered="#{currencyManager.totalConversionResult != null}" />
+            <h:outputText id="convertCurr" value="#{currencyManager.totalConversionResult}"/>
+            <h:outputText rendered="#{currencyManager.totalConversionResult == null}"  value="No total amount."/>
+        </p>
+        
+
+        <h:form>
+            <h3 style="text-align:center">Conversion result:</h3>
+            <p  style="text-align:center">
+           
+                <h:outputLabel for="convertCurr" rendered="#{currencyManager.conversionResult != null}" />
+                <h:outputText id="convertCurr" value="#{currencyManager.conversionResult}"/>
+                <h:outputText rendered="#{currencyManager.conversionResult == null}"  value="No current conversion."/>
+                
+                
+                
+                 </p>
+            <p  style="text-align:center">
+                 <h:outputLabel for="srcCurr" value="Enter the source currency: "/>
+                 <h:selectOneMenu id="scrCurr" value="#{currencyManager.srcCurrency}">
+                 <f:selectItem itemValue="EUR" itemLabel="EUR" />
+                 <f:selectItem itemValue="GBP" itemLabel="GBP" />
+                 <f:selectItem itemValue="SEK" itemLabel="SEK" />
+                 <f:selectItem itemValue="USD" itemLabel="USD" />      
+                 <f:selectItem itemValue="RMB" itemLabel="RMB" />
+                 </h:selectOneMenu>                
+                
+                </p>
+            <p  style="text-align:center">
+                 <h:outputLabel for="destiCurr" value="Enter the currency you want: "/>    
+                <h:selectOneMenu id="destiCurr" value="#{currencyManager.toCurrency}">
+                <f:selectItem itemValue="EUR" itemLabel="EUR" />
+                <f:selectItem itemValue="GBP" itemLabel="GBP" />
+                <f:selectItem itemValue="SEK" itemLabel="SEK" />
+                <f:selectItem itemValue="USD" itemLabel="USD" />      
+                <f:selectItem itemValue="RMB" itemLabel="RMB" />
+                </h:selectOneMenu>   
+                 
+                 </p>
+            <p  style="text-align:center">
+                 <h:outputLabel for="enteramount" value="Enter amount of source currency: "/>
+               <h:inputText id="enteramount" value="#{currencyManager.amount}"/>
+            </p>
+            <p  style="text-align:center">
+                <h:commandButton value="Convert" action="#{currencyManager.convertCurr}"/>
+            </p>
+
+        </h:form>
+
+    </h:body>
+</html>
+

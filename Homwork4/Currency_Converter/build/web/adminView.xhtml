@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Welcome to the Currency Exchange</title>
+    </h:head>
+    <h:body style="background-color: wheat ">
+        <h1  style="text-align:center">Welcome to the Currency Exchange Admin-Interface</h1>
+        <img style="display:block; margin:auto;" src="Exchange-rate.jpg" 
+             alt="converter" width="600" height="200"/>
+        <h3  style="text-align:center">Here are the total Operation Times:</h3>
+        <p  style="text-align:center">
+            <h:outputText id="convertTime" value="#{currencyManager.totalResult} times"/>
+        </p>
+        
+
+        <h:form>
+            <h3 style="text-align:center">Rate Changing:</h3>
+            
+            <p  style="text-align:center">
+                 <h:outputLabel for="srcCurr" value="Enter the source currency: "/>
+                 <h:selectOneMenu id="scrCurr" value="#{currencyManager.srcCurrency}">
+                 <f:selectItem itemValue="EUR" itemLabel="EUR" />
+                 <f:selectItem itemValue="GBP" itemLabel="GBP" />
+                 <f:selectItem itemValue="SEK" itemLabel="SEK" />
+                 <f:selectItem itemValue="USD" itemLabel="USD" />      
+                 <f:selectItem itemValue="RMB" itemLabel="RMB" />
+                 </h:selectOneMenu>                
+                
+                </p>
+            <p  style="text-align:center">
+                 <h:outputLabel for="destiCurr" value="Enter the destination currency: "/>    
+                <h:selectOneMenu id="destiCurr" value="#{currencyManager.toCurrency}">
+                <f:selectItem itemValue="EUR" itemLabel="EUR" />
+                <f:selectItem itemValue="GBP" itemLabel="GBP" />
+                <f:selectItem itemValue="SEK" itemLabel="SEK" />
+                <f:selectItem itemValue="USD" itemLabel="USD" />      
+                <f:selectItem itemValue="RMB" itemLabel="RMB" />
+                </h:selectOneMenu>   
+                 
+                 </p>
+            <p  style="text-align:center">
+                 <h:outputLabel for="enterRate" value="Setting the Currency Rate (SRC to DST): "/>
+               <h:inputText id="enterRate" value="#{currencyManager.rate}"/>
+            </p>
+            <p  style="text-align:center">
+                <h:commandButton value="Setting" action="#{currencyManager.adminSetRate}"/>
+            </p>
+
+        </h:form>
+
+    </h:body>
+</html>
+
