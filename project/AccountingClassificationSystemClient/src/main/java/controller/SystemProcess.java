@@ -26,13 +26,9 @@ public class SystemProcess {
         SystemOperation.categoryDataUpload(dataIn);    
     }
     
-    public static void checkProcess(String categoryID) throws Exception{
-            Receiver receiver = new Receiver("Queue3");      
-            Thread receiverThread = new Thread(receiver);
-            receiverThread.start();                      
+    public static void checkProcess(String categoryID) throws Exception{                 
             SystemOperation.checkDataIn(categoryID);         
-            System.out.println("Waiting for msg");        
-            new Robot().delay(100);                      
+                                 
     }
     
 }

@@ -6,6 +6,7 @@
 package model;
 
 import common.RMIInterface;
+import java.awt.Robot;
 import static startup.SystemClient.URL;
 import java.rmi.Naming;
 import net.Receiver;
@@ -56,8 +57,14 @@ public class SystemOperation {
     
     
     public static void checkDataIn(String categoryID) throws Exception{
+        
+        Receiver receiver = new Receiver("Queue3");      
+        Thread receiverThread = new Thread(receiver);
+        receiverThread.start();  
         RMIInterface userOperation=(RMIInterface)Naming.lookup(URL);
         userOperation.checkExchange(categoryID);
+        System.out.println("Waiting for msg");        
+        new Robot().delay(100);
     }
     
 }
