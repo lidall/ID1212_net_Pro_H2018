@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import common.RMIInterface;
 import model.LoginChoice;
 import model.SystemOperation;
-import net.Receiver;
+
 
 public class ServiceImpl extends UnicastRemoteObject implements RMIInterface{ 
 
@@ -65,13 +65,7 @@ public ServiceImpl() throws RemoteException {
     @Override
     public void resultUpload(){ 
 
-        try{
-        Receiver receiver = new Receiver("Queue2");
-            Thread receiverThread = new Thread(receiver);  
-            receiverThread.start();}
-        catch(Exception e){
-            e.printStackTrace();
-        }
+       SystemOperation.resultProcess();
 
     }
 

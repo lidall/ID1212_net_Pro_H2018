@@ -10,6 +10,7 @@ import net.Sender;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import net.Receiver;
 
 /**
  *
@@ -71,7 +72,16 @@ public class SystemOperation {
 
         }
     
-    
+     public static void resultProcess(){
+          try{
+        Receiver receiver = new Receiver("Queue2");
+            Thread receiverThread = new Thread(receiver);  
+            receiverThread.start();}
+        catch(Exception e){
+            e.printStackTrace();
+        }
+         
+     }
     public static void checkDataProcess(String categoryID){
         Connection conn = SystemInitial.getConn();
         String sql = "select * from " + categoryID;
